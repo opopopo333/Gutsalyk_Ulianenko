@@ -1,19 +1,43 @@
-﻿int result = Fibonacci(5);
-Console.WriteLine(result);
+﻿using System;
 
-static int Fibonacci(int n)
+/// <summary>
+/// Демонстрационный класс, иллюстрирующий работу с массивами символов и чисел.
+/// </summary>
+class ArrayExample
 {
-    Console.WriteLine("The output is: ");
-    int n1 = 0;
-    int n2 = 1;
-    int sum;
-
-    for (int i = 2; i <= n; i++)
+    /// <summary>
+    /// Точка входа в программу. 
+    /// Инициализирует массивы, формирует строку имени и выводит сообщения в цикле.
+    /// </summary>
+    static void Main()
     {
-        sum = n1 + n2;
-        n1 = n2;
-        n2 = sum;
+        // Исходный массив символов для формирования имени
+        char[] letters = { 'f', 'r', 'e', 'd', ' ', 's', 'm', 'i', 't', 'h' };
+        string name = "";
+        int[] a = new int[10];
+
+        for (int i = 0; i < letters.Length; i++)
+        {
+            // Постепенное накопление символов в строку
+            name += letters[i];
+
+            // Заполнение массива целыми числами от 1 до 10
+            a[i] = i + 1;
+
+            // Вызов вспомогательного метода для вывода данных
+            SendMessage(name, a[i]);
+        }
+
+        Console.ReadKey();
     }
 
-    return n == 0 ? n1 : n2;
+    /// <summary>
+    /// Выводит персонализированное приветствие и текущее числовое значение в консоль.
+    /// </summary>
+    /// <param name="name">Имя или часть имени для отображения.</param>
+    /// <param name="msg">Целочисленное значение счетчика.</param>
+    static void SendMessage(string name, int msg)
+    {
+        Console.WriteLine("Hello, " + name + "! Count to " + msg);
+    }
 }
